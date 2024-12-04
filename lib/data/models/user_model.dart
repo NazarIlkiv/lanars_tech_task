@@ -1,105 +1,76 @@
-import 'package:json_annotation/json_annotation.dart';
-
-part 'user_model.g.dart';
-
-@JsonSerializable()
 class UserModel {
-  final String gender;
-  final Name name;
-  final Location location;
   final String email;
-  final Login login;
-  final Dob dob;
+  final Name name;
   final Picture picture;
 
   UserModel({
-    required this.gender,
-    required this.name,
-    required this.location,
     required this.email,
-    required this.login,
-    required this.dob,
+    required this.name,
     required this.picture,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) =>
-      _$UserModelFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    if (json['results'] != null && json['results'] is List && json['results'].isNotEmpty) {
+      final userJson = json['results'][0];
 
-  Map<String, dynamic> toJson() => _$UserModelToJson(this);
+      if (userJson['email'] == null || userJson['name'] == null || userJson['picture'] == null) {
+        throw Exception('One or more required fields are missing in the response');
+      }
+
+      final nameJson = userJson['name'];
+      final name = Name.fromJson(nameJson);
+
+      final pictureJson = userJson['picture'];
+      final picture = Picture.fromJson(pictureJson);
+
+      return UserModel(
+        email: userJson['email'],
+        name: name,
+        picture: picture,
+      );
+    } else {
+      throw Exception('No results found in response');
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'email': email,
+      'name': name.toJson(),
+      'picture': picture.toJson(),
+    };
+  }
 }
 
-@JsonSerializable()
 class Name {
   final String title;
   final String first;
   final String last;
 
+  // Constructor
   Name({
     required this.title,
     required this.first,
     required this.last,
   });
 
-  factory Name.fromJson(Map<String, dynamic> json) => _$NameFromJson(json);
-  Map<String, dynamic> toJson() => _$NameToJson(this);
+  factory Name.fromJson(Map<String, dynamic> json) {
+    return Name(
+      title: json['title'] ?? '',
+      first: json['first'] ?? '',
+      last: json['last'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'first': first,
+      'last': last,
+    };
+  }
 }
 
-@JsonSerializable()
-class Location {
-  final Street street;
-  final String city;
-  final String state;
-  final String country;
-
-  Location({
-    required this.street,
-    required this.city,
-    required this.state,
-    required this.country,
-  });
-
-  factory Location.fromJson(Map<String, dynamic> json) =>
-      _$LocationFromJson(json);
-
-  Map<String, dynamic> toJson() => _$LocationToJson(this);
-}
-
-@JsonSerializable()
-class Street {
-  final int number;
-  final String name;
-
-  Street({required this.number, required this.name});
-
-  factory Street.fromJson(Map<String, dynamic> json) =>
-      _$StreetFromJson(json);
-
-  Map<String, dynamic> toJson() => _$StreetToJson(this);
-}
-
-@JsonSerializable()
-class Login {
-  final String uuid;
-  final String username;
-
-  Login({required this.uuid, required this.username});
-
-  factory Login.fromJson(Map<String, dynamic> json) => _$LoginFromJson(json);
-  Map<String, dynamic> toJson() => _$LoginToJson(this);
-}
-
-@JsonSerializable()
-class Dob {
-  final String date;
-  final int age;
-
-  Dob({required this.date, required this.age});
-
-  factory Dob.fromJson(Map<String, dynamic> json) => _$DobFromJson(json);
-  Map<String, dynamic> toJson() => _$DobToJson(this);
-}
-
-@JsonSerializable()
 class Picture {
   final String large;
   final String medium;
@@ -111,8 +82,19 @@ class Picture {
     required this.thumbnail,
   });
 
-  factory Picture.fromJson(Map<String, dynamic> json) =>
-      _$PictureFromJson(json);
+  factory Picture.fromJson(Map<String, dynamic> json) {
+    return Picture(
+      large: json['large'] ?? '',
+      medium: json['medium'] ?? '',
+      thumbnail: json['thumbnail'] ?? '',
+    );
+  }
 
-  Map<String, dynamic> toJson() => _$PictureToJson(this);
+  Map<String, dynamic> toJson() {
+    return {
+      'large': large,
+      'medium': medium,
+      'thumbnail': thumbnail,
+    };
+  }
 }
