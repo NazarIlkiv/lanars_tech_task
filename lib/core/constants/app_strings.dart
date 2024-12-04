@@ -5,4 +5,9 @@ class AppStrings {
   static const password = 'Password';
   static const enterYourPassword = 'Enter your password';
   static const logIn = 'Log in';
+  static const logOut = 'Log out';
+  static const listPage = 'List page';
+  static const profile = 'Profile';
+  static const areYouSureToWantToLogOut = 'Are you sure you want to logout ?';
+  static const cancel = 'Cancel';
 }
