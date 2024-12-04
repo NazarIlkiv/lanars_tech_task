@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:lanars_tech_task/core/theme/theme.dart';
-import 'package:lanars_tech_task/core/utils/di/injection.dart';
+import 'package:lanars_tech_task/core/utils/di/injection_container.dart';
 import 'package:lanars_tech_task/presentation/state/auth/auth_cubit.dart';
 import 'package:lanars_tech_task/presentation/state/user/user_cubit.dart';
 import 'package:lanars_tech_task/presentation/view/screens/main_screen/main_screen.dart';
@@ -15,7 +15,7 @@ void main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );
-  configureDependencies();
+  injectionContainer();
 
   runApp(const MainApp());
 }
