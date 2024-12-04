@@ -15,19 +15,22 @@ dependencies:
 
   #State Management
   bloc: any
+  hydrated_bloc: any
+  flutter_bloc: any
   realm: any
 
   #Network
   dio: any
+  pretty_dio_logger: any
   retrofit: any
 
   #Injection
   get_it: any
-  injectable: any
 
   #Utils
   equatable: any
   json_serializable: any
+  path_provider: any
 
 dev_dependencies:
   flutter_test:
