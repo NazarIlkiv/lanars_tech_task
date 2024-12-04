@@ -1,0 +1,48 @@
+name: lanars_tech_task
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  #UI
+  cupertino_icons: any
+
+  #State Management
+  bloc: any
+  realm: any
+
+  #Network
+  dio: any
+  retrofit: any
+
+  #Injection
+  get_it: any
+  injectable: any
+
+  #Utils
+  equatable: any
+  json_serializable: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: any
+  retrofit_generator: any
+  build_runner: any
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+  
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
