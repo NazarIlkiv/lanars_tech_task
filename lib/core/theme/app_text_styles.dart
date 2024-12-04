@@ -10,7 +10,7 @@ class AppTextStyles {
   static TextStyle mediumBodyText = TextStyle(
     color: lightColorScheme.onSurface,
     fontSize: 16,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
   );
   static TextStyle smallBodyText = TextStyle(
     color: lightColorScheme.onSurface,
