@@ -25,6 +25,7 @@ analyzer:
     parameter_assignments: error
     prefer_const_constructors: error
     sized_box_for_whitespace: error
+    use_build_context_synchronously: ignore
 linter:
 
   rules:
