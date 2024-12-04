@@ -6,9 +6,7 @@ part 'auth_state.dart';
 class AuthCubit extends HydratedCubit<AuthState> {
   AuthCubit() : super(const AuthState(isLoggedIn: false));
 
-  Future<void> signIn() async {
-    emit(state.copyWith(isLoggedIn: true));
-  }
+  void signIn() => emit(state.copyWith(isLoggedIn: true));
 
   void logout() => emit(state.copyWith(isLoggedIn: false));
 
