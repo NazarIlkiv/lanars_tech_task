@@ -4,6 +4,8 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 class DioConfig {
   static Dio createDio() {
     final dio = Dio();
+    dio.options.headers["Authorization"] =
+        'O6YyFIDny2VWPHpdVEcsXKCnxSCQ0dUFNPGNFLZbou0cvy0o1U3LmcPC';
 
     dio.interceptors.add(
       PrettyDioLogger(
