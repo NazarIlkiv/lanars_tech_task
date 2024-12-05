@@ -10,4 +10,6 @@ class AppStrings {
   static const profile = 'Profile';
   static const areYouSureToWantToLogOut = 'Are you sure you want to logout ?';
   static const cancel = 'Cancel';
+  static const search = 'Search...';
+  static const noItemFound = 'No item found';
 }
