@@ -22,4 +22,9 @@ class AppTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle h2Text = TextStyle(
+    color: lightColorScheme.secondary,
+    fontSize: 22,
+    fontWeight: FontWeight.w400,
+  );
 }
