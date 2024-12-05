@@ -91,7 +91,9 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
             ],
           );
         }
-        return const CircularProgressIndicator();
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
       },
     );
   }
@@ -104,9 +106,9 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
           onPressed: () {
             Navigator.of(context).pop();
             showDialog(
-            context: context,
-            builder: (context) => const LogOutModalWindow(),
-          );
+              context: context,
+              builder: (context) => const LogOutModalWindow(),
+            );
           },
         ),
         Text(
