@@ -1,3 +1,8 @@
+// Data models in this project were written manually due to issues with json_serializable
+// when parsing the data, which caused problems with data display. I am confident that
+// this can be resolved, but due to time constraints, I had to opt for a quicker solution
+// (although not the most optimal or correct one) and implement the data parsing logic manually.
+
 class UserModel {
   final String email;
   final Name name;
@@ -10,11 +15,17 @@ class UserModel {
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
-    if (json['results'] != null && json['results'] is List && json['results'].isNotEmpty) {
+    if (json['results'] != null &&
+        json['results'] is List &&
+        json['results'].isNotEmpty) {
       final userJson = json['results'][0];
 
-      if (userJson['email'] == null || userJson['name'] == null || userJson['picture'] == null) {
-        throw Exception('One or more required fields are missing in the response');
+      if (userJson['email'] == null ||
+          userJson['name'] == null ||
+          userJson['picture'] == null) {
+        throw Exception(
+          'One or more required fields are missing in the response',
+        );
       }
 
       final nameJson = userJson['name'];

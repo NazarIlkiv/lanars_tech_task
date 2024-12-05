@@ -1,3 +1,8 @@
+// Data models in this project were written manually due to issues with json_serializable
+// when parsing the data, which caused problems with data display. I am confident that
+// this can be resolved, but due to time constraints, I had to opt for a quicker solution
+// (although not the most optimal or correct one) and implement the data parsing logic manually.
+
 class PexelsResponseModel {
   final int page;
   final int perPage;
