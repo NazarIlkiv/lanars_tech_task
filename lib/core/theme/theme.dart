@@ -49,11 +49,6 @@ final ThemeData lightTheme = ThemeData(
   ),
 );
 
-final ThemeData darkTheme = ThemeData(
-  fontFamily: 'Roboto',
-  colorScheme: darkColorScheme,
-);
-
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Color(0xFF0061A6),
@@ -83,37 +78,5 @@ const lightColorScheme = ColorScheme(
   shadow: Color(0xFF000000),
   surfaceTint: Color(0xFF0061A6),
   outlineVariant: Color(0xFFC3C6CF),
-  scrim: Color(0xFF000000),
-);
-
-const darkColorScheme = ColorScheme(
-  brightness: Brightness.dark,
-  primary: Color(0xFFA0CAFF),
-  onPrimary: Color(0xFF003259),
-  primaryContainer: Color(0xFF00497E),
-  onPrimaryContainer: Color(0xFFD2E4FF),
-  secondary: Color(0xFFBBC7DB),
-  onSecondary: Color(0xFF253141),
-  secondaryContainer: Color(0xFF3C4858),
-  onSecondaryContainer: Color(0xFFD7E3F8),
-  tertiary: Color(0xFFD7BEE4),
-  onTertiary: Color(0xFF3B2947),
-  tertiaryContainer: Color(0xFF533F5F),
-  onTertiaryContainer: Color(0xFFF3DAFF),
-  error: Color(0xFFFFB4AB),
-  onError: Color(0xFF690005),
-  errorContainer: Color(0xFF93000A),
-  onErrorContainer: Color(0xFFFFDAD6),
-  outline: Color(0xFF8D9199),
-  surface: Color(0xFF121316),
-  onSurface: Color(0xFFC6C6CA),
-  surfaceContainerHighest: Color(0xFF43474E),
-  onSurfaceVariant: Color(0xFFC3C6CF),
-  inverseSurface: Color(0xFFE3E2E6),
-  onInverseSurface: Color(0xFF1A1C1E),
-  inversePrimary: Color(0xFF0061A6),
-  shadow: Color(0xFF000000),
-  surfaceTint: Color(0xFFA0CAFF),
-  outlineVariant: Color(0xFF43474E),
   scrim: Color(0xFF000000),
 );
